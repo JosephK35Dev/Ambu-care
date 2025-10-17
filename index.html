@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AmbuCare | Inicio</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="inicio-body">
+  <main class="inicio-container">
+    <img src="img/logo.png" alt="Logo AmbuCare" class="inicio-logo">
+    
+
+    <div class="inicio-botones">
+      <button id="btnRegistrarHistoria">➕ Registrar nueva historia</button>
+      <div id="mensaje-flotante"></div>
+      <!-- Modal sencillo -->
+<div id="opcionesModal" class="modal">
+  <div class="modal-content">
+    <h2>¿Cómo deseas registrar la historia?</h2>
+    <button id="manualBtn">Registro Manual</button>
+    <button id="iaBtn">Registro con IA</button>
+    <button id="cerrarModal">Cancelar</button>
+  </div>
+</div>
+      <button onclick="window.location.href='lista.html'">🔍 Ver lista de historias</button>
+    </div>
+  </main>
+  <script src="js/index.js" type="module"></script>
+</body>
+</html>

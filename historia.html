@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Historia Clínica</title>
+  <link rel="stylesheet" href="css/styles.css">
+  
+</head>
+<body class="historia-body">
+  <header class="historia-header">
+    <h1>Historia Clínica</h1>
+    <nav>
+      <button onclick="window.location.href='index.html'">🏠 Inicio</button>
+      <button onclick="window.location.href='lista.html'">📋 Ver Historias</button>
+    </nav>
+  </header>
+
+  <main class="historia-main">
+    <section class="form-section">
+      <h2>Datos Personales</h2>
+      <form id="form-historia">
+        <div class="form-grid">
+
+          <label>Nombre completo</label>
+          <input type="text" id="nombre" name="nombre">
+
+          <label>Tipo de documento</label>
+          <input type="text" id="tipoDoc" name="tipoDoc">
+
+          <label>Número de identificación</label>
+          <input type="text" id="documento" name="documento">
+
+          <label>Género</label>
+          <input type="text" id="genero" name="genero">
+
+          <label>Fecha de nacimiento</label>
+          <input type="date" id="nacimiento" name="nacimiento">
+
+          <label>Teléfono</label>
+          <input type="tel" id="telefono" name="telefono">
+
+          <label>Contacto de emergencia</label>
+          <input type="text" id="emergencia" name="emergencia">
+
+          <label>Teléfono de emergencia</label>
+          <input type="tel" id="telEmergencia" name="telEmergencia">
+        </div>
+
+        <h2>Datos Médicos</h2>
+        <div class="form-grid">
+          <label>Diagnóstico</label>
+          <textarea rows="3" id="diagnostico" name="diagnostico"></textarea>
+
+          <label>Alergias</label>
+          <input type="text" id="alergias" name="alergias">
+
+          <label>Medicamentos recientes</label>
+          <input type="text" id="medicamentos" name="medicamentos">
+
+          <label>Enfermedades crónicas</label>
+          <input type="text" id="cronicas" name="cronicas">
+
+          <label>Síntoma principal</label>
+          <input type="text" id="sintoma" name="sintoma">
+
+          <label>Intensidad del dolor</label>
+          <input type="text" id="intensidad" name="intensidad">
+        </div>
+
+        <button type="submit" class="guardar-btn" id="guardarHistoria">Guardar historia</button>
+      </form>
+    </section>
+  </main>
+  
+  <!-- Contenedor de notificaciones -->
+  <div id="notificacion" class="notificacion"></div>
+
+  <!-- JS principal -->
+  <script type="module" src="js/supabaseClient.js"></script>
+  <script type="module" src="js/historia.js"></script>
+</body>
+</html>
