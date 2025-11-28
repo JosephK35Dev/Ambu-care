@@ -17,6 +17,45 @@ document.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => mensaje.style.display = 'none', 2500);
   }
 
+  function isNumeric(str) { return /^[0-9]+$/.test(str); }
+function isPhone(str) { return /^[0-9]{7,15}$/.test(str); }
+function isIntInRange(str, min, max) {
+  const n = Number(str);
+  return Number.isInteger(n) && n >= min && n <= max;
+}
+function notFuture(dateStr) {
+  if (!dateStr) return false;
+  const d = new Date(dateStr);
+  const today = new Date();
+  const todayOnly = new Date(today.getFullYear(), today.getMonth(), today.getDate());
+  return d <= todayOnly;
+}
+
+function validarHistoria(h) {
+  const errors = [];
+
+  // Requeridos básicos
+  if (!h.nombre) errors.push('El nombre es requerido.');
+  if (!h.tipoDoc) errors.push('El tipo de documento es requerido.');
+  if (!h.documento) errors.push('El número de identificación es requerido.');
+  if (!h.genero) errors.push('El género es requerido.');
+  if (!h.nacimiento) errors.push('La fecha de nacimiento es requerida.');
+  if (!h.telefono) errors.push('El teléfono es requerido.');
+  if (!h.diagnostico) errors.push('El diagnóstico es requerido.');
+  if (!h.sintoma) errors.push('El síntoma principal es requerido.');
+  if (!h.intensidad) errors.push('La intensidad del dolor es requerida.');
+
+  // Formatos específicos
+  if (h.documento && !isNumeric(h.documento)) errors.push('El documento debe contener solo números.');
+  if (h.telefono && !isPhone(h.telefono)) errors.push('El teléfono debe tener entre 7 y 15 dígitos.');
+  if (h.telEmergencia && !isPhone(h.telEmergencia)) errors.push('El teléfono de emergencia debe tener entre 7 y 15 dígitos.');
+  if (h.intensidad && !isIntInRange(h.intensidad, 1, 10)) errors.push('La intensidad del dolor debe ser un entero entre 1 y 10.');
+  if (h.nacimiento && !notFuture(h.nacimiento)) errors.push('La fecha de nacimiento no puede ser futura.');
+
+  return errors;
+}
+
+
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
@@ -41,11 +80,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     console.log(historia);
     // 🔴 Validar que todos los campos estén llenos
-    const vacios = Object.values(historia).some(v => !v);
-    if (vacios) {
-      mostrarMensaje('⚠️ Por favor, completa todos los campos.', 'error');
-      return;
-    }
+    const errores = validarHistoria(historia);
+    if (errores.length) {
+    mostrarMensaje('⚠️ ' + errores[0], 'error'); // Mostramos el primer error para no saturar
+    return;
+    } 
 
     try {
       // 🟢 Insertar en Supabase

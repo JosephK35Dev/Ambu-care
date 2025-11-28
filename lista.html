@@ -9,10 +9,45 @@
 <body>
   <div class="lista-container">
     <h1>Historias registradas</h1>
+    <input type="text" id="buscador" class="buscador" placeholder="Buscar por nombre o documento...">
     <div id="listaHistorias" class="historias-grid"></div>
     <button class="btn-volver" onclick="window.location.href='index.html'">Volver</button>
   </div>
 
+
+ <!-- Modal de detalle -->
+<div id="modalDetalle" class="modal-detalle" style="display:none;">
+  <div class="modal-contenido ficha-modal" id="fichaModal">
+    <div class="pdf-header">
+      <img src="img/logo.png" alt="Logo AmbuCare" class="pdf-logo">
+      <div class="pdf-title">
+        <h1>Historia Clínica</h1>
+        <p class="pdf-fecha">Exportado: <span id="fechaExportacion"></span></p>
+      </div>
+    </div>
+    
+    <header class="ficha-header">
+      <h2>Historia clínica</h2>
+      <button id="cerrarModalDetalle" class="cerrar-btn">Cerrar ✖</button>
+    </header>
+
+    <section class="ficha-section">
+      <h3>Datos personales</h3>
+      <div id="detallePersonales" class="ficha-grid"></div>
+    </section>
+
+    <section class="ficha-section">
+      <h3>Datos clínicos</h3>
+      <div id="detalleClinicos" class="ficha-grid"></div>
+    </section>
+
+    <footer class="ficha-footer">
+      <button class="btn-detalle" id="btnExportarPdf">Exportar a PDF</button>
+    </footer>
+  </div>
+</div>
+
+  <script src="https://cdn.jsdelivr.net/npm/html2pdf.js@0.10.1/dist/html2pdf.bundle.min.js"></script>
   <script type="module" src="js/lista.js"></script>
 </body>
 </html>
