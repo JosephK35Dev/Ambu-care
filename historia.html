@@ -22,51 +22,74 @@
       <form id="form-historia">
         <div class="form-grid">
 
-          <label>Nombre completo</label>
-          <input type="text" id="nombre" name="nombre">
+  <label>Nombre completo</label>
+  <input type="text" id="nombre" name="nombre">
 
-          <label>Tipo de documento</label>
-          <input type="text" id="tipoDoc" name="tipoDoc">
+  <label>Tipo de documento</label>
+  <select id="tipoDoc" name="tipoDoc" required>
+    <option value="">Seleccione...</option>
+    <option value="CC">Cédula de ciudadanía (CC)</option>
+    <option value="TI">Tarjeta de identidad (TI)</option>
+    <option value="CE">Cédula de extranjería (CE)</option>
+    <option value="PAS">Pasaporte</option>
+  </select>
 
-          <label>Número de identificación</label>
-          <input type="text" id="documento" name="documento">
+  <label>Número de identificación</label>
+  <input type="text" id="documento" name="documento">
 
-          <label>Género</label>
-          <input type="text" id="genero" name="genero">
+  <label>Género</label>
+  <select id="genero" name="genero" required>
+    <option value="">Seleccione...</option>
+    <option value="Masculino">Masculino</option>
+    <option value="Femenino">Femenino</option>
+    <option value="Otro">Otro</option>
+  </select>
 
-          <label>Fecha de nacimiento</label>
-          <input type="date" id="nacimiento" name="nacimiento">
+  <label>Fecha de nacimiento</label>
+  <input type="date" id="nacimiento" name="nacimiento">
 
-          <label>Teléfono</label>
-          <input type="tel" id="telefono" name="telefono">
+  <label>Teléfono</label>
+  <input type="tel" id="telefono" name="telefono">
 
-          <label>Contacto de emergencia</label>
-          <input type="text" id="emergencia" name="emergencia">
+  <label>Nombre contacto de emergencia</label>
+  <input type="text" id="emergencia" name="emergencia">
 
-          <label>Teléfono de emergencia</label>
-          <input type="tel" id="telEmergencia" name="telEmergencia">
-        </div>
+  <label>Teléfono de emergencia</label>
+  <input type="tel" id="telEmergencia" name="telEmergencia">
+</div>
 
-        <h2>Datos Médicos</h2>
-        <div class="form-grid">
-          <label>Diagnóstico</label>
-          <textarea rows="3" id="diagnostico" name="diagnostico"></textarea>
+<h2>Datos Médicos</h2>
+<div class="form-grid">
+  <label>Diagnóstico</label>
+  <textarea rows="3" id="diagnostico" name="diagnostico"></textarea>
 
-          <label>Alergias</label>
-          <input type="text" id="alergias" name="alergias">
+  <label>Alergias</label>
+  <input type="text" id="alergias" name="alergias">
 
-          <label>Medicamentos recientes</label>
-          <input type="text" id="medicamentos" name="medicamentos">
+  <label>Medicamentos recientes</label>
+  <input type="text" id="medicamentos" name="medicamentos">
 
-          <label>Enfermedades crónicas</label>
-          <input type="text" id="cronicas" name="cronicas">
+  <label>Enfermedades crónicas</label>
+  <input type="text" id="cronicas" name="cronicas">
 
-          <label>Síntoma principal</label>
-          <input type="text" id="sintoma" name="sintoma">
+  <label>Síntoma principal</label>
+  <input type="text" id="sintoma" name="sintoma">
 
-          <label>Intensidad del dolor</label>
-          <input type="text" id="intensidad" name="intensidad">
-        </div>
+  <label>Intensidad del dolor</label>
+  <select id="intensidad" name="intensidad" required>
+    <option value="">Seleccione...</option>
+    <option value="1">1 - Muy leve</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5 - Moderado</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+    <option value="8">8</option>
+    <option value="9">9</option>
+    <option value="10">10 - Muy intenso</option>
+  </select>
+</div>
 
         <button type="submit" class="guardar-btn" id="guardarHistoria">Guardar historia</button>
       </form>

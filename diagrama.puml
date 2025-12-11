@@ -1,0 +1,41 @@
+@startuml
+title Diagrama de clases - AmbuCare (basado en código JS)
+
+class HistoriaJS {
+  + mostrarMensaje(texto, tipo) : void
+  + validarHistoria(h) : list
+  + verHistorias() : void
+  + registrarHistoria() : void
+}
+
+class ListaJS {
+  - historiasGlobal : list
+  + formatRelative(dateStr) : string
+  + formatFecha(fechaStr) : string
+  + mostrarDetalle(h) : void
+  + renderHistorias(lista) : void
+}
+
+class StorageJS {
+  - STORAGE_KEY : string
+  + guardarHistoria(historia) : void
+  + obtenerHistorias() : list
+  + limpiarHistorias() : void
+}
+
+class SupabaseClientJS {
+  - supabaseUrl : string
+  - supabaseKey : string
+  + from(tabla) : object
+  + insert(data) : void
+  + select(query) : list
+  + order(campo, asc) : list
+}
+
+' Relaciones reales según tu código
+HistoriaJS --> SupabaseClientJS
+ListaJS --> SupabaseClientJS
+ListaJS --> HistoriaJS
+StorageJS --> HistoriaJS
+
+@enduml

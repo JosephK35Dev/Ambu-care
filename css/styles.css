@@ -60,6 +60,8 @@ form {
   gap: 10px;
 }
 
+
+
 input, textarea {
   padding: 8px;
   border: 1px solid #ccc;
@@ -223,8 +225,9 @@ th {
 }
 
 .form-grid input,
-.form-grid textarea {
-  width: 100%;
+.form-grid textarea,
+.form-grid select {
+  width: 99.5%;
   padding: 12px;
   border: 1px solid #cfd8dc;
   border-radius: 8px;
@@ -235,12 +238,16 @@ th {
 }
 
 .form-grid input:focus,
-.form-grid textarea:focus {
+.form-grid textarea:focus,
+.form-grid select:focus {
   border-color: #1e88e5;
   outline: none;
   background-color: #fff;
   box-shadow: 0 0 0 3px rgba(30,136,229,0.15);
 }
+
+
+
 
 
 /* Botón guardar */
